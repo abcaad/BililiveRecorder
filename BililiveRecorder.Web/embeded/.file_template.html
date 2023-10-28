@@ -121,7 +121,7 @@
                         const playerBaseUrl = new Array(pathDepth - 1).fill('../').join('') + 'player/#';
                         Array.from(document.querySelectorAll('#index tbody tr')).forEach(row => {
                             const d = row.querySelectorAll('td');
-                            if (d[1].textContent.endsWith('flv')) {
+                            if (/\.(flv|mp4)$/.test(d[1].textContent)) {
                                 const playerLink = document.createElement('a');
                                 playerLink.textContent = '播放';
                                 playerLink.href = playerBaseUrl + new URL(encodeURIComponent(d[1].textContent), location.href).pathname;
