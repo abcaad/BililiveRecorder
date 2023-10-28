@@ -82,7 +82,7 @@
     </div>
     <script>
         function updateXmlPath() {
-            if (flvPath.value.endsWith(".flv")) {
+            if (/\.(flv|mp4)$/.test(flvPath.value)) {
                 xmlPath.value = flvPath.value.slice(0, -3) + 'xml';
             }
         }
