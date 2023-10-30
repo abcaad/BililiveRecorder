@@ -61,6 +61,8 @@
     <script src="./mpegts.js"></script>
     <script src="./artplayer.js"></script>
     <script src="./artplayer-plugin-danmuku.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/artplayer/dist/artplayer.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/artplayer-plugin-danmuku/dist/artplayer-plugin-danmuku.js"></script> -->
 </head>
 
 <body>
@@ -123,7 +125,7 @@
                     flv: function (video, url) {
                         if (mpegts.isSupported()) {
                             const player = mpegts.createPlayer({
-                                type: 'flv',
+                                type: url.slice(-3),
                                 url: url,
                             });
                             player.attachMediaElement(video);
@@ -134,6 +136,10 @@
                     },
                 },
             });
+            if (flvPath.value.slice(-3) == 'mp4')// 禁用长按弹出下载菜单
+                document.querySelector('#root > div.playerArea video.art-video').addEventListener('contextmenu', function(event) {
+                    event.preventDefault();
+                }, false);
         }
 
         ~function () {
