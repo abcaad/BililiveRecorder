@@ -85,6 +85,7 @@
     <script>
         function updateXmlPath() {
             if (/\.(flv|mp4)$/.test(flvPath.value)) {
+                flvPath.value = decodeURI(flvPath.value);
                 xmlPath.value = flvPath.value.slice(0, -3) + 'xml';
             }
         }
