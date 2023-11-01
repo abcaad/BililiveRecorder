@@ -99,7 +99,7 @@
                 {% for file in files %}{% if file.isDirectory -%}
                 <tr class="directory">
                     <td></td>
-                    <td class="name"><a href="./{{ file.name | url_encode | replace: "+", "%20" }}/">{{ file.name | escape }}/</a></td>
+                    <td class="name"><a href="./{{ file.name | url_encode | replace: '+', '%20' }}/">{{ file.name | escape }}/</a></td>
                     <td></td>
                     <td class="modified" data-time="{{ file.lastModified | format_date: 'O' }}">{{ file.lastModified }}
                     </td>
@@ -108,7 +108,7 @@
                 {% for file in files %}{% unless file.isDirectory -%}
                 <tr class="file">
                     <td></td>
-                    <td class="name"><a href="./{{ file.name | url_encode | replace: "+", "%20" }}">{{ file.name | escape }}</a></td>
+                    <td class="name"><a href="./{{ file.name | url_encode | replace: '+', '%20' }}">{{ file.name | escape }}</a></td>
                     <td class="size" data-size="{{ file.length }}" title="{{ file.length }} 字节">{{ file.length |
                         format_number: 'N0' }} B</td>
                     <td class="modified" data-time="{{ file.lastModified | format_date: 'O' }}">{{ file.lastModified }}
