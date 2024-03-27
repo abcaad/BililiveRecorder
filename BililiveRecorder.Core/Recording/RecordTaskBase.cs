@@ -281,7 +281,7 @@ match_qn_success:
                 throw new Exception("no url_info");
 
             // https:// xy0x0x0x0xy.mcdn.bilivideo.cn:486
-            var url_infos_without_mcdn = url_infos; //url_infos.Where(x => !x.Host.Contains(".mcdn.")).ToArray();
+            var url_infos_without_mcdn = url_infos.ToArray(); //url_infos.Where(x => !x.Host.Contains(".mcdn.")).ToArray();
 
             var url_info = url_infos_without_mcdn.Length != 0
                 ? url_infos_without_mcdn[this.random.Next(url_infos_without_mcdn.Length)]
