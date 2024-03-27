@@ -12,7 +12,7 @@ namespace BililiveRecorder.Web.Models.Rest.Logs
     {
         public static WebApiLogEventSink? Instance;
 
-        private const int MAX_LOG = 100;
+        private const int MAX_LOG = 1000;
 
         private readonly ReaderWriterLockSlim readerWriterLock = new();
         private readonly ITextFormatter textFormatter;
